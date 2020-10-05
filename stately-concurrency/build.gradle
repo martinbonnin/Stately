@@ -45,14 +45,14 @@ kotlin {
         iosArm32()
         iosArm64()
         iosX64()
-        linuxX64()
-        linuxArm32Hfp()
-        linuxMips32()
         watchosArm32()
         watchosArm64()
         watchosX86()
         tvosArm64()
         tvosX64()
+        linuxX64()
+        linuxArm32Hfp()
+        linuxMips32()
         //    androidNativeArm32()
         //    androidNativeArm64()
         mingwX64()
@@ -122,36 +122,78 @@ kotlin {
             dependsOn nativeCommonMain
         }
 
+        macosX64Main {
+            dependsOn darwinMain
+        }
+        iosArm32Main {
+            dependsOn darwinMain
+        }
+        iosArm64Main {
+            dependsOn darwinMain
+        }
+        iosX64Main {
+            dependsOn darwinMain
+        }
+        watchosArm32Main {
+            dependsOn darwinMain
+        }
+        watchosArm64Main {
+            dependsOn darwinMain
+        }
+        watchosX86Main {
+            dependsOn darwinMain
+        }
+        tvosArm64Main {
+            dependsOn darwinMain
+        }
+        tvosX64Main {
+            dependsOn darwinMain
+        }
+        mingwX64 {
+            dependsOn mingwMain
+        }
+        linuxX64Main {
+            dependsOn pthreadMain
+        }
+        linuxArm32HfpMain {
+            dependsOn pthreadMain
+        }
+        linuxMips32Main {
+            dependsOn pthreadMain
+        }
+
+
+
         if (!ideaActive) {
-            configure([targets.iosX64,
-                       targets.iosArm32,
-                       targets.iosArm64,
-                       targets.macosX64,
-                       targets.watchosArm32,
-                       targets.watchosArm64,
-                       targets.watchosX86,
-                       targets.tvosArm64,
-                       targets.tvosX64
-            ]) {
-                compilations.main.source(sourceSets.darwinMain)
-                compilations.test.source(sourceSets.nativeCommonTest)
-            }
+            //configure([targets.iosX64,
+            //           targets.iosArm32,
+            //           targets.iosArm64,
+            //           targets.macosX64,
+            //           targets.watchosArm32,
+            //           targets.watchosArm64,
+            //           targets.watchosX86,
+            //           targets.tvosArm64,
+            //           targets.tvosX64
+            //]) {
+            //    //compilations.main.source(sourceSets.darwinMain)
+            //    //compilations.test.source(sourceSets.nativeCommonTest)
+            //}
 
-            configure([targets.linuxX64,
-                       targets.linuxArm32Hfp,
-                       targets.linuxMips32
-//                   ,
-//                   targets.androidNativeArm32,
-//                   targets.androidNativeArm64
-            ]) {
-                compilations.main.source(sourceSets.pthreadMain)
-                compilations.test.source(sourceSets.nativeCommonTest)
-            }
-
-            configure([targets.mingwX64]) {
-                compilations.main.source(sourceSets.mingwMain)
-                compilations.test.source(sourceSets.nativeCommonTest)
-            }
+            //configure([targets.linuxX64,
+            //           targets.linuxArm32Hfp,
+            //           targets.linuxMips32
+//          //         ,
+//          //         targets.androidNativeArm32,
+//          //         targets.androidNativeArm64
+            //]) {
+            //    compilations.main.source(sourceSets.pthreadMain)
+            //    compilations.test.source(sourceSets.nativeCommonTest)
+            //}
+            //
+            //configure([targets.mingwX64]) {
+            //    compilations.main.source(sourceSets.mingwMain)
+            //    compilations.test.source(sourceSets.nativeCommonTest)
+            //}
         }
     }
 }

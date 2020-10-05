@@ -99,23 +99,64 @@ kotlin {
         nativeCommonTest {
         }
 
+        macosX64Main {
+            dependsOn nativeCommonMain
+        }
+        iosArm32Main {
+            dependsOn nativeCommonMain
+        }
+        iosArm64Main {
+            dependsOn nativeCommonMain
+        }
+        iosX64Main {
+            dependsOn nativeCommonMain
+        }
+        watchosArm32Main {
+            dependsOn nativeCommonMain
+        }
+        watchosArm64Main {
+            dependsOn nativeCommonMain
+        }
+        watchosX86Main {
+            dependsOn nativeCommonMain
+        }
+        tvosArm64Main {
+            dependsOn nativeCommonMain
+        }
+        tvosX64Main {
+            dependsOn nativeCommonMain
+        }
+        mingwX64 {
+            dependsOn nativeCommonMain
+        }
+        linuxX64Main {
+            dependsOn nativeCommonMain
+        }
+        linuxArm32HfpMain {
+            dependsOn nativeCommonMain
+        }
+        linuxMips32Main {
+            dependsOn nativeCommonMain
+        }
+
+
         if (!ideaActive) {
-            configure([targets.iosX64,
-                       targets.iosArm32,
-                       targets.iosArm64,
-                       targets.macosX64,
-                       targets.watchosArm32,
-                       targets.watchosArm64,
-                       targets.watchosX86,
-                       targets.tvosArm64,
-                       targets.tvosX64,
-                       targets.linuxX64,
-                       targets.linuxArm32Hfp,
-                       targets.linuxMips32,
-                       targets.mingwX64]) {
-                compilations.main.source(sourceSets.nativeCommonMain)
-                compilations.test.source(sourceSets.nativeCommonTest)
-            }
+            //configure([targets.iosX64,
+            //           targets.iosArm32,
+            //           targets.iosArm64,
+            //           targets.macosX64,
+            //           targets.watchosArm32,
+            //           targets.watchosArm64,
+            //           targets.watchosX86,
+            //           targets.tvosArm64,
+            //           targets.tvosX64,
+            //           targets.linuxX64,
+            //           targets.linuxArm32Hfp,
+            //           targets.linuxMips32,
+            //           targets.mingwX64]) {
+            //    compilations.main.source(sourceSets.nativeCommonMain)
+            //    compilations.test.source(sourceSets.nativeCommonTest)
+            //}
         }
     }
 }
